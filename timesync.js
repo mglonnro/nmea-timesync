@@ -12,8 +12,7 @@ rl.on("line", line => {
     if (o.pgn == "126992") {
       if (o.fields && o.fields.Date && o.fields.Time) {
         let rfc = o.fields.Date.replace(/\./g, "-") + "T" + o.fields.Time + "Z";
-        // console.log(JSON.stringify(o));
-        // console.log(rfc);
+
         exec("date -s '" + rfc + "'", (err, stdout, stderr) => {
           if (err) {
             console.error("Couldn't set date!", stdout, stderr);
